@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-    <!-- ส่วนของ HEAD -->
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,24 +9,24 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
         
         <!-- Bootstrap Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         
-        <!-- ตั้งค่าการใช้งาน TailwindCSS ผ่าน HTTPS เพื่อไม่ให้ถูกบล็อกบน GitHub Pages -->
+        <!-- TailwindCSS via HTTPS -->
         <script src="https://cdn.tailwindcss.com"></script>
         
-        <!-- ตั้งค่า Tailwind Configuration -->
+        <!-- Tailwind Config -->
         <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         bebas: ["Bebas Neue", "sans-serif"],
-                        bebus: ["Bebas Neue", "sans-serif"], // รองรับสะกด bebus เดิม
+                        bebus: ["Bebas Neue", "sans-serif"],
                         prompt: ["Prompt", "sans-serif"],
                         inter: ["Inter", "sans-serif"],
                     },
@@ -40,82 +39,102 @@
             },
         };
         </script>
+
+        <!-- Fallback CSS ป้องกันหน้าเพี้ยนหาก CDN โหลดช้า -->
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                background-color: #000C58;
+                color: #ffffff;
+                font-family: 'Prompt', 'Inter', sans-serif;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+            .font-bebas, .font-bebus {
+                font-family: 'Bebas Neue', cursive, sans-serif;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
     </head>
 
-    <!-- ส่วนของ BODY -->
-    <body class="bg-mainBg text-white min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-accentBlue selection:text-black">
+    <body class="bg-[#000C58] text-white min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-[#7A99E9] selection:text-black">
         
-        <!-- ส่วนที่ 1 Nav Bar (ใช้ Container และ Flex justify-between ป้องกันล้นจอ) -->
-        <header class="w-full bg-navBg py-4 px-6 md:px-12 sticky top-0 z-50 shadow-lg">
-            <div class="max-w-6xl mx-auto flex items-center justify-between">
-                <!-- ส่วนเมนูด้านซ้าย -->
-                <a href="#" class="text-white uppercase font-bebas text-2xl md:text-3xl tracking-wider hover:text-accentBlue transition-colors">
+        <!-- ==================== ส่วนที่ 1: NAVIGATION BAR ==================== -->
+        <header class="w-full bg-[#060135] py-4 px-6 md:px-12 sticky top-0 z-50 shadow-xl border-b border-gray-800">
+            <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
+                <!-- โลโก้ด้านซ้าย -->
+                <a href="#" class="text-white uppercase font-bebas text-2xl md:text-3xl tracking-wider hover:text-[#7A99E9] transition-colors">
                     Airin Hatsadawan
                 </a>
 
-                <!-- ส่วนเมนูด้านขวา -->
-                <nav class="flex items-center gap-6 md:gap-8">
-                    <a href="#about" class="text-white font-inter text-sm md:text-base hover:text-yellow-300 transition-colors">About</a>
-                    <a href="#capabilities" class="text-white font-inter text-sm md:text-base hover:text-yellow-300 transition-colors">Capabilities</a>
-                    <a href="#experience" class="text-white font-inter text-sm md:text-base hover:text-yellow-300 transition-colors">Experience</a>
-                    <a href="#contact" class="text-white font-inter text-sm md:text-base hover:text-yellow-300 transition-colors">Contact</a>
+                <!-- เมนูด้านขวา -->
+                <nav class="flex items-center gap-4 sm:gap-8 font-inter text-sm md:text-base">
+                    <a href="#about" class="text-white hover:text-[#7A99E9] transition-colors">About</a>
+                    <a href="#capabilities" class="text-white hover:text-[#7A99E9] transition-colors">Capabilities</a>
+                    <a href="#experience" class="text-white hover:text-[#7A99E9] transition-colors">Experience</a>
+                    <a href="#contact" class="text-white hover:text-[#7A99E9] transition-colors">Contact</a>
                 </nav>
             </div>
         </header>
 
-        <!-- ส่วนที่ 2 Hero Section (ปรับโครงสร้างเป็น Grid/Flex Responsive) -->
-        <main class="w-full max-w-6xl mx-auto px-6 md:px-12 py-12 md:py-20 flex-1">
-            <section class="flex flex-col md:flex-row items-center justify-between gap-12">
-                
-                <!-- ส่วนฝั่งซ้าย CTA -->
-                <div class="w-full md:w-1/2 flex flex-col gap-3 text-left">
+        <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+        <main class="w-full max-w-6xl mx-auto px-6 md:px-12 py-10 md:py-16 flex-1">
+            
+            <!-- ==================== ส่วนที่ 2: HERO SECTION ==================== -->
+            <section class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
+                <!-- ฝั่งซ้าย: ข้อความและปุ่ม -->
+                <div class="w-full md:w-1/2 flex flex-col gap-4 text-left">
                     <h1 class="text-white text-5xl sm:text-6xl lg:text-7xl font-bebas leading-tight tracking-wider">
-                        HI, I AM <br class="hidden sm:inline" />
-                        <span class="text-accentBlue">AIRIN H.</span>
+                        HI, I AM <br />
+                        <span class="text-[#7A99E9]">AIRIN H.</span>
                     </h1>
                     
-                    <p class="text-gray-300 font-prompt text-base md:text-lg leading-relaxed">
+                    <p class="text-gray-300 font-prompt text-base md:text-lg leading-relaxed max-w-xl">
                         นักพัฒนาเว็บไซต์ฝั่งฟรอนท์เอนด์จากประเทศไทย ที่มีความหลงใหลในการสร้างเว็บไซต์ที่เข้าถึงได้และเป็นมิตรกับผู้ใช้
                     </p>
                     
-                    <div class="mt-6 flex flex-wrap items-center gap-4">
-                        <a href="#contact" class="bg-accentBlue text-black text-base md:text-lg font-prompt font-bold py-3 px-8 rounded-full hover:bg-navBg hover:text-white transition-all duration-300 shadow-md hover:scale-105 inline-flex items-center gap-2">
+                    <div class="mt-4 flex flex-wrap items-center gap-4">
+                        <a href="#contact" class="bg-[#7A99E9] text-black text-base md:text-lg font-prompt font-bold py-3 px-8 rounded-full hover:bg-[#060135] hover:text-white transition-all duration-300 shadow-lg hover:scale-105 inline-flex items-center gap-2">
                             CONTACT ME 😁
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-accentBlue p-3 rounded-full hover:bg-accentBlue hover:text-black transition-all hover:scale-110" title="LinkedIn">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-[#7A99E9] p-3 rounded-full hover:bg-[#7A99E9] hover:text-black transition-all hover:scale-110" title="LinkedIn">
                             <i class="bi bi-linkedin text-xl"></i>
                         </a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-accentBlue p-3 rounded-full hover:bg-accentBlue hover:text-black transition-all hover:scale-110" title="GitHub">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-[#7A99E9] p-3 rounded-full hover:bg-[#7A99E9] hover:text-black transition-all hover:scale-110" title="GitHub">
                             <i class="bi bi-github text-xl"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- ส่วนฝั่งขวา แสดงรูป -->
+                <!-- ฝั่งขวา: รูปภาพ -->
                 <div class="w-full md:w-1/2 flex justify-center md:justify-end">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-accentBlue rounded-[40px] blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                    <div class="relative group max-w-[340px] w-full">
+                        <div class="absolute -inset-1 bg-[#7A99E9] rounded-[40px] blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
                         <img src="./images/c1.png" 
                              onerror="this.onerror=null; this.src='https://placehold.co/400x400/060135/7A99E9?text=Airin+H.';" 
-                             alt="Airin Hatsadawan" 
-                             class="relative w-full max-w-[320px] md:max-w-[380px] aspect-square object-cover rounded-[40px] shadow-2xl border-2 border-accentBlue/30 transition-transform duration-300 group-hover:scale-105" />
+                             alt="Airin Profile" 
+                             class="relative w-full aspect-square object-cover rounded-[40px] shadow-2xl border-2 border-[#7A99E9]/40 transition-transform duration-300 group-hover:scale-105" />
                     </div>
                 </div>
             </section>
 
-            <!-- ตีเส้นแบ่ง -->
-            <div class="h-[1px] bg-gray-600/60 my-16"></div>
+            <!-- เส้นแบ่ง -->
+            <div class="h-[1px] bg-gray-700/60 my-12 md:my-16"></div>
 
-            <!-- ส่วนที่ 3 About ME -->
+            <!-- ==================== ส่วนที่ 3: ABOUT ME ==================== -->
             <section id="about" class="flex flex-col md:flex-row gap-8 md:gap-16">
-                <!-- ส่วนข้อความ ABOUT ME -->
                 <div class="w-full md:w-1/3">
                     <h2 class="text-white font-bebas text-5xl md:text-6xl tracking-wider">
                         ABOUT ME
                     </h2>
                 </div>
 
-                <!-- ส่วนของรายละเอียดของ About me -->
                 <div class="w-full md:w-2/3 flex flex-col gap-5">
                     <p class="text-white font-prompt text-lg md:text-xl leading-relaxed">
                         ผม/ดิฉันเป็นนักพัฒนาเว็บไซต์ฝั่งฟรอนท์เอนด์ที่ทำงานอยู่ในกรุงเทพฯ กำลังมองหาโอกาสที่น่าตื่นเต้นในการทำงาน มีพื้นฐานการศึกษาด้านวิศวกรรมซอฟต์แวร์
@@ -124,32 +143,32 @@
                         ชอบให้ความสำคัญกับการเข้าถึง (accessibility) เมื่อพัฒนาเว็บไซต์ มีความกระตือรือร้นและอยากรู้อยากเห็นเกี่ยวกับการแก้ปัญหาต่างๆ ปัจจุบันกำลังศึกษาเรียนรู้เกี่ยวกับ React.js และการออกแบบเว็บไซต์ เมื่อไม่ได้เขียนโปรแกรม ชอบเล่นฟุตบอล ถ่ายภาพ และเล่นเกม FIFA, Diablo กำลังเรียนรู้เพิ่มเติมเพื่อพัฒนาทักษะอยู่เสมอ
                     </p>
                     
-                    <div class="mt-4 flex flex-wrap items-center gap-4">
-                        <a href="#" class="bg-accentBlue text-black text-base md:text-lg font-prompt font-bold py-3 px-6 rounded-full hover:bg-navBg hover:text-white transition-all duration-300 shadow-md">
+                    <div class="mt-2 flex flex-wrap items-center gap-4">
+                        <a href="#" class="bg-[#7A99E9] text-black text-base md:text-lg font-prompt font-bold py-3 px-6 rounded-full hover:bg-[#060135] hover:text-white transition-all duration-300 shadow-md">
                             Download RESUME
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-accentBlue p-3 rounded-full hover:bg-accentBlue hover:text-black transition-all hover:scale-110">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-[#7A99E9] p-3 rounded-full hover:bg-[#7A99E9] hover:text-black transition-all hover:scale-110">
                             <i class="bi bi-linkedin text-xl"></i>
                         </a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-accentBlue p-3 rounded-full hover:bg-accentBlue hover:text-black transition-all hover:scale-110">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-[#7A99E9] p-3 rounded-full hover:bg-[#7A99E9] hover:text-black transition-all hover:scale-110">
                             <i class="bi bi-github text-xl"></i>
                         </a>
                     </div>
                 </div>
             </section>        
 
-            <!-- ส่วนที่ 4 ส่วนแสดงรูป -->
-            <div class="mt-16 w-full flex justify-center">
+            <!-- ==================== ส่วนที่ 4: FEATURED BANNER ==================== -->
+            <div class="mt-14 w-full flex justify-center">
                 <img src="./images/c2.png" 
-                     onerror="this.onerror=null; this.src='https://placehold.co/120x40/060135/7A99E9?text=Featured+Projects+Banner';" 
-                     alt="Featured Projects" 
-                     class="w-full max-w-4xl rounded-2xl shadow-xl border border-gray-700/50 object-cover" />
+                     onerror="this.onerror=null; this.src='https://placehold.co/1200x400/060135/7A99E9?text=Featured+Projects+Banner';" 
+                     alt="Featured Banner" 
+                     class="w-full max-w-4xl rounded-2xl shadow-2xl border border-gray-700/60 object-cover" />
             </div>
 
-            <!-- ตีเส้นแบ่ง -->
-            <div class="h-[1px] bg-gray-600/60 my-16"></div>
+            <!-- เส้นแบ่ง -->
+            <div class="h-[1px] bg-gray-700/60 my-12 md:my-16"></div>
 
-            <!-- ส่วนที่ 5 MY CAP. (Capabilities / Skills) -->
+            <!-- ==================== ส่วนที่ 5: MY CAPABILITIES ==================== -->
             <section id="capabilities" class="flex flex-col md:flex-row gap-8 md:gap-16">
                 <div class="w-full md:w-1/3">
                     <h2 class="text-white font-bebas text-5xl md:text-6xl tracking-wider">
@@ -157,37 +176,37 @@
                     </h2>
                 </div>
                 <div class="w-full md:w-2/3 grid grid-cols-2 sm:grid-cols-3 gap-4 font-prompt">
-                    <div class="p-4 bg-navBg/60 border border-gray-700 rounded-xl flex items-center gap-3">
-                        <i class="bi bi-filetype-html text-2xl text-accentBlue"></i>
+                    <div class="p-4 bg-[#060135]/80 border border-gray-700/80 rounded-xl flex items-center gap-3 shadow-md">
+                        <i class="bi bi-filetype-html text-3xl text-[#7A99E9]"></i>
                         <span class="text-white font-medium">HTML5 / CSS3</span>
                     </div>
-                    <div class="p-4 bg-navBg/60 border border-gray-700 rounded-xl flex items-center gap-3">
-                        <i class="bi bi-filetype-js text-2xl text-accentBlue"></i>
+                    <div class="p-4 bg-[#060135]/80 border border-gray-700/80 rounded-xl flex items-center gap-3 shadow-md">
+                        <i class="bi bi-filetype-js text-3xl text-[#7A99E9]"></i>
                         <span class="text-white font-medium">JavaScript</span>
                     </div>
-                    <div class="p-4 bg-navBg/60 border border-gray-700 rounded-xl flex items-center gap-3">
-                        <i class="bi bi-bootstrap text-2xl text-accentBlue"></i>
+                    <div class="p-4 bg-[#060135]/80 border border-gray-700/80 rounded-xl flex items-center gap-3 shadow-md">
+                        <i class="bi bi-bootstrap text-3xl text-[#7A99E9]"></i>
                         <span class="text-white font-medium">Tailwind CSS</span>
                     </div>
-                    <div class="p-4 bg-navBg/60 border border-gray-700 rounded-xl flex items-center gap-3">
-                        <i class="bi bi-code-slash text-2xl text-accentBlue"></i>
+                    <div class="p-4 bg-[#060135]/80 border border-gray-700/80 rounded-xl flex items-center gap-3 shadow-md">
+                        <i class="bi bi-code-slash text-3xl text-[#7A99E9]"></i>
                         <span class="text-white font-medium">React.js</span>
                     </div>
-                    <div class="p-4 bg-navBg/60 border border-gray-700 rounded-xl flex items-center gap-3">
-                        <i class="bi bi-git text-2xl text-accentBlue"></i>
+                    <div class="p-4 bg-[#060135]/80 border border-gray-700/80 rounded-xl flex items-center gap-3 shadow-md">
+                        <i class="bi bi-git text-3xl text-[#7A99E9]"></i>
                         <span class="text-white font-medium">Git / GitHub</span>
                     </div>
-                    <div class="p-4 bg-navBg/60 border border-gray-700 rounded-xl flex items-center gap-3">
-                        <i class="bi bi-[#060135] bi-phone text-2xl text-accentBlue"></i>
+                    <div class="p-4 bg-[#060135]/80 border border-gray-700/80 rounded-xl flex items-center gap-3 shadow-md">
+                        <i class="bi bi-phone text-3xl text-[#7A99E9]"></i>
                         <span class="text-white font-medium">Responsive</span>
                     </div>
                 </div>
             </section>
 
-            <!-- ตีเส้นแบ่ง -->
-            <div class="h-[1px] bg-gray-600/60 my-16"></div>
+            <!-- เส้นแบ่ง -->
+            <div class="h-[1px] bg-gray-700/60 my-12 md:my-16"></div>
 
-            <!-- ส่วนที่ 6 MY EXP. (Experience) -->
+            <!-- ==================== ส่วนที่ 6: MY EXPERIENCE ==================== -->
             <section id="experience" class="flex flex-col md:flex-row gap-8 md:gap-16">
                 <div class="w-full md:w-1/3">
                     <h2 class="text-white font-bebas text-5xl md:text-6xl tracking-wider">
@@ -195,73 +214,73 @@
                     </h2>
                 </div>
                 <div class="w-full md:w-2/3 flex flex-col gap-6 font-prompt">
-                    <div class="border-l-2 border-accentBlue pl-6 flex flex-col gap-1">
-                        <span class="text-accentBlue text-sm font-semibold">2024 - PRESENT</span>
+                    <div class="border-l-4 border-[#7A99E9] pl-6 flex flex-col gap-1 py-1">
+                        <span class="text-[#7A99E9] text-sm font-semibold tracking-wider">2024 - PRESENT</span>
                         <h3 class="text-xl font-bold text-white">Freelance Frontend Developer</h3>
-                        <p class="text-gray-300 text-sm">ออกแบบและพัฒนาระบบเว็บแอปพลิเคชันสำหรับลูกค้าและโปรเจกต์อิสระ</p>
+                        <p class="text-gray-300 text-sm leading-relaxed">ออกแบบและพัฒนาระบบเว็บแอปพลิเคชันสำหรับลูกค้าและโปรเจกต์อิสระ</p>
                     </div>
-                    <div class="border-l-2 border-gray-600 pl-6 flex flex-col gap-1">
-                        <span class="text-gray-400 text-sm font-semibold">SAU UNIVERSITY</span>
+                    <div class="border-l-4 border-gray-600 pl-6 flex flex-col gap-1 py-1">
+                        <span class="text-gray-400 text-sm font-semibold tracking-wider">SAU UNIVERSITY</span>
                         <h3 class="text-xl font-bold text-white">Software Engineering Student</h3>
-                        <p class="text-gray-300 text-sm">ศึกษาเกี่ยวกับการพัฒนาระบบซอฟต์แวร์ โครงสร้างข้อมูล และ UX/UI Design</p>
+                        <p class="text-gray-300 text-sm leading-relaxed">ศึกษาเกี่ยวกับการพัฒนาระบบซอฟต์แวร์ โครงสร้างข้อมูล และ UX/UI Design</p>
                     </div>
                 </div>
             </section>
 
-            <!-- ตีเส้นแบ่ง -->
-            <div class="h-[1px] bg-gray-600/60 my-16"></div>
+            <!-- เส้นแบ่ง -->
+            <div class="h-[1px] bg-gray-700/60 my-12 md:my-16"></div>
 
-            <!-- ส่วนที่ 7 LET'S CONNECT -->
-            <section id="contact" class="flex flex-col md:flex-row gap-12">
-                <!-- ส่วนด้านซ้าย ข้อความและไอคอน -->
+            <!-- ==================== ส่วนที่ 7: LET'S CONNECT ==================== -->
+            <section id="contact" class="flex flex-col md:flex-row gap-10 md:gap-16">
+                <!-- ฝั่งซ้าย: ข้อมูลการติดต่อ -->
                 <div class="flex flex-col gap-6 w-full md:w-1/2">
                     <h2 class="text-white font-bebas text-5xl md:text-6xl tracking-wider">
                         LET'S CONNECT
                     </h2>
                     <p class="font-inter text-gray-300 text-base md:text-lg leading-relaxed">
-                        Say hello at <a href="mailto:6952D10018@sau.ac.th" class="text-accentBlue hover:underline">6952D10018@sau.ac.th</a>
+                        Say hello at <a href="mailto:6952D10018@sau.ac.th" class="text-[#7A99E9] hover:underline font-medium">6952D10018@sau.ac.th</a>
                         <br />
                         For more info, here's my resume.
                     </p>
                     <div class="flex gap-4 pt-2">
-                        <a href="https://linkedin.com" target="_blank" class="p-3 bg-navBg text-accentBlue rounded-full hover:bg-accentBlue hover:text-black transition-colors"><i class="bi bi-linkedin text-xl"></i></a>
-                        <a href="https://github.com" target="_blank" class="p-3 bg-navBg text-accentBlue rounded-full hover:bg-accentBlue hover:text-black transition-colors"><i class="bi bi-github text-xl"></i></a>
-                        <a href="https://twitter.com" target="_blank" class="p-3 bg-navBg text-accentBlue rounded-full hover:bg-accentBlue hover:text-black transition-colors"><i class="bi bi-twitter-x text-xl"></i></a>
-                        <a href="https://instagram.com" target="_blank" class="p-3 bg-navBg text-accentBlue rounded-full hover:bg-accentBlue hover:text-black transition-colors"><i class="bi bi-instagram text-xl"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="p-3 bg-[#060135] text-[#7A99E9] rounded-full hover:bg-[#7A99E9] hover:text-black transition-colors shadow-md"><i class="bi bi-linkedin text-xl"></i></a>
+                        <a href="https://github.com" target="_blank" class="p-3 bg-[#060135] text-[#7A99E9] rounded-full hover:bg-[#7A99E9] hover:text-black transition-colors shadow-md"><i class="bi bi-github text-xl"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="p-3 bg-[#060135] text-[#7A99E9] rounded-full hover:bg-[#7A99E9] hover:text-black transition-colors shadow-md"><i class="bi bi-twitter-x text-xl"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="p-3 bg-[#060135] text-[#7A99E9] rounded-full hover:bg-[#7A99E9] hover:text-black transition-colors shadow-md"><i class="bi bi-instagram text-xl"></i></a>
                     </div>
                 </div>
 
-                <!-- ส่วนด้านขวา Form ให้ป้อน -->
+                <!-- ฝั่งขวา: แบบฟอร์ม -->
                 <form onsubmit="event.preventDefault();" class="w-full md:w-1/2 flex flex-col gap-4 font-inter">
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1.5">
                         <label class="text-gray-200 text-sm font-light">Name</label>
-                        <input type="text" placeholder="Your Name" class="p-3 rounded-lg bg-navBg border border-gray-700 text-white focus:outline-none focus:border-accentBlue transition-colors" />
+                        <input type="text" placeholder="Your Name" class="p-3 rounded-lg bg-[#060135] border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#7A99E9] transition-colors w-full" />
                     </div>
                     
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1.5">
                         <label class="text-gray-200 text-sm font-light">Email</label>
-                        <input type="email" placeholder="your.email@example.com" class="p-3 rounded-lg bg-navBg border border-gray-700 text-white focus:outline-none focus:border-accentBlue transition-colors" />
+                        <input type="email" placeholder="your.email@example.com" class="p-3 rounded-lg bg-[#060135] border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#7A99E9] transition-colors w-full" />
                     </div>
                     
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1.5">
                         <label class="text-gray-200 text-sm font-light">Subject</label>
-                        <input type="text" placeholder="Project Inquiry" class="p-3 rounded-lg bg-navBg border border-gray-700 text-white focus:outline-none focus:border-accentBlue transition-colors" />
+                        <input type="text" placeholder="Project Inquiry" class="p-3 rounded-lg bg-[#060135] border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#7A99E9] transition-colors w-full" />
                     </div>
                     
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1.5">
                         <label class="text-gray-200 text-sm font-light">Message</label>
-                        <textarea rows="5" placeholder="Write your message here..." class="p-3 rounded-lg bg-navBg border border-gray-700 text-white focus:outline-none focus:border-accentBlue transition-colors resize-none"></textarea>
+                        <textarea rows="4" placeholder="Write your message here..." class="p-3 rounded-lg bg-[#060135] border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#7A99E9] transition-colors resize-none w-full"></textarea>
                     </div>
 
-                    <button type="submit" class="mt-2 bg-accentBlue hover:bg-navBg text-black hover:text-white py-3 px-8 rounded-full font-prompt text-base md:text-lg font-bold w-full sm:w-[220px] transition-all duration-300 shadow-md">
+                    <button type="submit" class="mt-2 bg-[#7A99E9] hover:bg-[#060135] text-black hover:text-white py-3 px-8 rounded-full font-prompt text-base md:text-lg font-bold w-full sm:w-[220px] transition-all duration-300 shadow-lg border border-[#7A99E9]">
                         SUBMIT
                     </button>
                 </form>
             </section>
         </main>
 
-        <!-- ส่วนที่ 8 Copyright -->
-        <footer class="w-full bg-navBg py-6 border-t border-gray-800 text-center">
+        <!-- ==================== ส่วนที่ 8: FOOTER ==================== -->
+        <footer class="w-full bg-[#060135] py-6 border-t border-gray-800 text-center">
             <p class="text-sm md:text-base text-gray-400 font-prompt">
                 © 2026 Created by <span class="text-white font-medium">Airin DTI SAU</span>. All rights reserved.
             </p>
