@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airin Profile 2026 - Tailwind CSS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#91ffb2',
+                        darkbtn: '#2c2c2c',
+                    },
+                    fontFamily: {
+                        mono: ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand font-mono h-full flex flex-col justify-between text-slate-800 antialiased selection:bg-slate-900 selection:text-brand">
+
+    <main class="max-w-[1400px] w-full mx-auto px-6 py-8 md:px-10 md:py-10 flex-1 flex flex-col lg:flex-row justify-between items-stretch gap-6 overflow-y-auto">
+
+        <!-- Section 1: Headline, Bio, Follow Button, and Bottom Horizontal Cards -->
+        <section class="w-full lg:w-[48%] flex flex-col justify-between">
+            <div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-5 leading-tight tracking-tight">
+                    My Web Design by <br />HTML CSS
+                </h1>
+                <p class="text-sm md:text-base text-slate-800 mb-8 max-w-xl leading-relaxed">
+                    Lorem ipsum dolor sit amet,<br />
+                    consectetur adipiscing elit.<br />
+                    Cursus imperdiet sed id elementum.<br />
+                    Quam vel aliquam sit vulputate.
+                </p>
+
+                <!-- Interactive Follow Button (No alert used) -->
+                <button id="followBtn" onclick="toggleFollow()" class="bg-darkbtn hover:bg-slate-900 text-white px-8 py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 mb-8 cursor-pointer flex items-center gap-2">
+                    <span id="followIcon">✨</span>
+                    <span id="followText">Follow Me</span>
+                </button>
+            </div>
+
+            <!-- Bottom Horizontal Cards (Page A & Page B) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full h-[220px] mt-auto">
+                <!-- Card 1: Page A -->
+                <a href="page_a.html" target="_blank" class="group block h-full bg-slate-900 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-black/5 overflow-hidden relative">
+                    <div class="h-full flex flex-col justify-between relative group overflow-hidden">
+                        <!-- Top Browser Bar Mockup -->
+                        <div class="bg-slate-800 px-3 py-2 flex items-center gap-1.5 border-b border-slate-700/50 text-xs text-slate-300 z-10">
+                            <span class="w-2.5 h-2.5 rounded-full bg-red-400 inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
+                            <span class="ml-2 text-[10px] text-slate-400 truncate font-sans">page_a.html</span>
+                        </div>
+                        <!-- Live Iframe Preview -->
+                        <div class="relative flex-1 bg-white overflow-hidden">
+                            <iframe src="page_a.html" class="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left scale-[0.25] border-0 pointer-events-none" title="Page A Preview" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2: Page B -->
+                <a href="page_b.html" target="_blank" class="group block h-full bg-slate-900 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-black/5 overflow-hidden relative">
+                    <div class="h-full flex flex-col justify-between relative group overflow-hidden">
+                        <!-- Top Browser Bar Mockup -->
+                        <div class="bg-slate-800 px-3 py-2 flex items-center gap-1.5 border-b border-slate-700/50 text-xs text-slate-300 z-10">
+                            <span class="w-2.5 h-2.5 rounded-full bg-red-400 inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
+                            <span class="ml-2 text-[10px] text-slate-400 truncate font-sans">page_b.html</span>
+                        </div>
+                        <!-- Live Iframe Preview -->
+                        <div class="relative flex-1 bg-white overflow-hidden">
+                            <iframe src="page_b.html" class="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left scale-[0.25] border-0 pointer-events-none" title="Page B Preview" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 2: Middle Vertical Card (Page C) -->
+        <section class="w-full lg:w-[24%] flex justify-center min-h-[360px] lg:min-h-0">
+            <a href="page_c.html" target="_blank" class="group w-full block h-full bg-slate-900 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative border border-slate-800">
+                <div class="h-full flex flex-col justify-between bg-slate-900 text-white relative">
+                    <div class="bg-slate-800/90 px-3 py-2 flex items-center gap-1.5 border-b border-slate-700/50 text-xs text-slate-300 z-10">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
+                        <span class="ml-2 text-[10px] text-slate-400 font-sans">page_c.html</span>
+                    </div>
+                    <div class="flex-1 relative overflow-hidden bg-slate-950">
+                        <iframe src="page_c.html" class="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left scale-[0.25] border-0 pointer-events-none" title="Page C Preview" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <!-- Section 3: Right Vertical Card (Page D) -->
+        <section class="w-full lg:w-[24%] flex justify-center min-h-[360px] lg:min-h-0">
+            <a href="page_d.html" target="_blank" class="group w-full block h-full bg-amber-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden relative border border-amber-200">
+                <div class="h-full flex flex-col justify-between bg-amber-100 text-amber-950 relative">
+                    <div class="bg-amber-200/80 px-3 py-2 flex items-center gap-1.5 border-b border-amber-300/50 text-xs text-amber-900 z-10">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-400 inline-block"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
+                        <span class="ml-2 text-[10px] text-amber-800 font-sans">page_d.html</span>
+                    </div>
+                    <div class="flex-1 relative overflow-hidden bg-amber-50">
+                        <iframe src="page_d.html" class="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left scale-[0.25] border-0 pointer-events-none" title="Page D Preview" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" class="fixed bottom-16 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-sm px-5 py-2.5 rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2 border border-slate-700">
+        <span class="text-emerald-400">✓</span>
+        <span>Thanks for following Airin!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 px-4 text-xs md:text-sm text-slate-800 bg-brand border-t border-black/5">
+        <p class="my-0.5">(เว็บไซต์และผลงานทั้งหมดใช้เพื่อการศึกษาเท่านั้น)</p>
+        <p class="my-0.5 font-bold">Created by Airin SAU</p>
+        <p class="my-0.5 text-slate-700">Copyright &copy; 2026 WoW WoW WoW</p>
+    </footer>
+
+    <!-- Simple Script for Button Feedback -->
+    <script>
+        let isFollowing = false;
+
+        function toggleFollow() {
+            const btn = document.getElementById('followBtn');
+            const icon = document.getElementById('followIcon');
+            const text = document.getElementById('followText');
+            const toast = document.getElementById('toast');
+
+            isFollowing = !isFollowing;
+
+            if (isFollowing) {
+                btn.classList.replace('bg-darkbtn', 'bg-emerald-600');
+                icon.textContent = '✓';
+                text.textContent = 'Following';
+                showToast('Thanks for following Airin!');
+            } else {
+                btn.classList.replace('bg-emerald-600', 'bg-darkbtn');
+                icon.textContent = '✨';
+                text.textContent = 'Follow Me';
+                showToast('Unfollowed');
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.querySelector('span:last-child').textContent = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+    </script>
+</body>
+
+</html>
