@@ -1,71 +1,100 @@
 <!doctype html>
 <html lang="en">
-  <!-- +++++++++++++++ ส่วนของ HEAD +++++++++++++++ -->
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Airin Hatsadawan</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <!-- ตั้งค่าการใช้งาน TailwindCSS  -->
-    <script src="http://cdn.tailwindcss.com"></script>
-    <!-- ตั้งค่าการใช้งาน Google Font กับ TailwindCSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+    <!-- Tailwind CSS CDN (แก้ไขเป็น HTTPS แล้ว) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              monomaniac: ["Monomaniac One"],
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        monomaniac: ["Monomaniac One", "sans-serif"],
+                    },
+                    colors: {
+                        accent: "#01D5A2"
+                    }
+                },
             },
-          },
-        },
-      };
+        };
     </script>
-  </head>
- 
-  <!-- +++++++++++++++ ส่วนของ BODY +++++++++++++++ -->
-  <body class="bg-black">
-   
+</head>
+
+<body class="bg-black text-white min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-emerald-500 selection:text-black">
+
     <!-- ส่วนของ Nav Bar -->
-    <div class="flex items-center mt-8 mx-[150px]">
-        <!-- เมนูด้านซ้าย -->
-        <div class="w-full flex justify-start gap-4">
-            <a href="#" class="text-white font-monomaniac text-2xl">Portfolio</a>
-            <a href="#" class="text-white font-monomaniac text-2xl">About Me</a>
-            <a href="#" class="text-white font-monomaniac text-2xl">Get In Touch</a>
-        </div>
- 
-        <!-- รูป hero ตรงกลาง -->
-        <div class="w-full flex justify-center">
-            <img src="./images/hello1.png" alt="hello1" class="w-[75px]">
-        </div>
- 
-        <!-- เมนูไอคอนด้านขวา -->
-        <div  class="w-full flex justify-end gap-4">
-            <a href="#" class="text-white text-2xl"><i class="bi bi-github"></i></a>
-            <a href="#" class="text-white text-2xl"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="text-white text-2xl"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="text-white text-2xl"><i class="bi bi-linkedin"></i></a>
-        </div>
-    </div>
- 
+    <header class="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 pt-8">
+        <nav class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+            <!-- เมนูด้านซ้าย -->
+            <div class="flex items-center justify-center md:justify-start gap-4 lg:gap-8 w-full md:w-auto">
+                <a href="#portfolio" class="font-monomaniac text-xl lg:text-2xl hover:text-accent transition-colors">Portfolio</a>
+                <a href="#about" class="font-monomaniac text-xl lg:text-2xl hover:text-accent transition-colors">About Me</a>
+                <a href="#contact" class="font-monomaniac text-xl lg:text-2xl hover:text-accent transition-colors">Get In Touch</a>
+            </div>
+
+            <!-- รูป hero ตรงกลาง -->
+            <div class="flex justify-center my-2 md:my-0">
+                <img src="./images/hello1.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/150x150/01D5A2/000000?text=Hello!';" 
+                     alt="hello1" 
+                     class="w-[60px] md:w-[75px] h-auto transition-transform hover:scale-110 duration-300" />
+            </div>
+
+            <!-- เมนูไอคอนด้านขวา -->
+            <div class="flex items-center justify-center md:justify-end gap-5 w-full md:w-auto text-2xl">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-all hover:scale-110" title="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-all hover:scale-110" title="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-all hover:scale-110" title="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-all hover:scale-110" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </nav>
+    </header>
+
     <!-- ส่วนของ ข้อความตรงกลางหน้าจอ -->
-    <div class="flex flex-col items-center gap-7 mt-[120px] ">
-        <span class="text-white font-monomaniac text-5xl">Airin Hatsadawan</span>
-        <span class="text-[#01D5A2]  font-monomaniac text-5xl">Freelance Web Devleoper</span>
-        <span class="text-white  font-monomaniac text-5xl">Base In THAILAND</span>
-    </div>
- 
-    <!-- ส่วนของ รูปด้านล่าง -->
-    <div class="flex justify-center mt-[80px]">
-        <img src="./images/person1.png" alt="person1"
-             class="w-[300px] border-[5px] border-[#01D5A2] rounded-full p-3">
-    </div>
- 
-  </body>
+    <main class="flex-1 flex flex-col items-center justify-center my-12 px-4 text-center">
+        <div class="flex flex-col items-center gap-3 sm:gap-5 md:gap-7 my-auto">
+            <h1 class="font-monomaniac text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wide text-white">
+                Airin Hatsadawan
+            </h1>
+            <h2 class="font-monomaniac text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wide text-accent">
+                Freelance Web Developer
+            </h2>
+            <h3 class="font-monomaniac text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wide text-white">
+                Based In THAILAND
+            </h3>
+        </div>
+
+        <!-- ส่วนของ รูปด้านล่าง -->
+        <div class="flex justify-center mt-10 md:mt-16">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-accent rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
+                <img src="./images/person1.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/300x300/111827/01D5A2?text=Airin';" 
+                     alt="person1"
+                     class="relative w-[220px] sm:w-[260px] md:w-[300px] aspect-square object-cover border-[5px] border-accent rounded-full p-2 md:p-3 bg-black transition-transform duration-300 group-hover:scale-105" />
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-xs text-neutral-500 font-mono">
+        <p>&copy; 2026 Airin Hatsadawan. All rights reserved.</p>
+    </footer>
+
+</body>
+
 </html>
